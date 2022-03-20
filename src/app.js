@@ -32,10 +32,10 @@
    
     app.post("/get_seats",async(req,response)=>{
         var input;    
-        input= req.body.seats
+        input= req.body.seats   //user's input 
         var result = "";
-            await check()
-    async function check()
+        await check()
+        async function check()
             {
             var Seats = await Seat.findOne({});
             if(Seats == null){
@@ -43,7 +43,6 @@
                 Seats = await Seat.findOne({});
             }
             var ct = 0;
-            // console.log(Seats);
             var SeatString = Seats.value;
             for(var i=0;i<80;i++){
                 if(SeatString[i] == '0'){
@@ -67,12 +66,11 @@
                 if(SeatString[start++] == '0'){
                     ct++;
                 }
-            }
+                }
             if(ct >= input){
-                console.log("Empty row found");
-                
-                start -= 7;
-                for(j=0;j<7;j++){
+            console.log("Empty row found");
+            start -= 7;
+            for(j=0;j<7;j++){
                     if(SeatString[start] == '0'){
                         SeatArray[start++] = '1';
                         var row_number = i+1;
@@ -92,6 +90,8 @@
                 }
             }
         }
+
+
         console.log("Empty row not found");
         var start = 0;
         var SeatArray = SeatString.split("");
@@ -115,7 +115,7 @@
                 }
             }
         }
-
+        // For the last row that contains 3 seats 
         for(var i=0;i<3;i++){
             if(SeatString[start] == '0'){
                 SeatArray[start++] = '1';
@@ -130,7 +130,7 @@
             if(input == 0){
                 var newSeatsString = SeatArray.join("");
                 console.log(newSeatsString);
-                await Seat.findOneAndUpdate({name: "Seats"},{$set: {value: newSeatsString }});
+                await Seat.findOneAndUpdate({name: "Seats"},{$set: {value: newSeatsString }}); //Updating the string in the database 
                 return;
             }
         }
@@ -140,12 +140,12 @@
         var SeatString = "";
         for(var i=0;i<80;i++){
             SeatString += '0';
-        }
+        } //Creating empty string of 80 '0's
         await Seat.create({name: "Seats",value: SeatString});
-        console.log(SeatString);
+        console.log(SeatString); 
     }
     if (input !== "") {
-        response.send("\n \nYour seats are <br>" + result  + '<br/>');
+        response.send("\n \nYour seats are <br>" + result  + '<br/>'); //Sending final result
     } else {
         response.send("Please provide us no of seats");
     }

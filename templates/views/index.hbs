@@ -5,14 +5,12 @@
 <head>
     <title>Seats Bookings</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <script defer src="js/app.js" ></script>
   <h1>  {{title}} {{number}} {{temp}} {{temp2}} </h1>
     
 </head>
 
 <body>
     <div class="main-content">
-        {{!-- {{>header}} --}}
         <p>Please Enter the number of seats you would like to book!</p>
         <form action="/get_seats" method="post" id="form">
             
@@ -27,17 +25,6 @@
         <img class='portrait' src='./img/seats.jpg'
     </div>
     {{>footer}}
-
-
-       <script >
-const msg1=document.querySelector('#msg-1')
-     var mainapp = require('src/app.js');
-     var result = mainapp.result;
-     console.log("Our result is" + result)
-     msg1.textContent=result
-
-       </script>
-    
 </body>
 
 </html>
