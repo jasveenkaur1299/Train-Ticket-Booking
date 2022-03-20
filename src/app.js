@@ -75,8 +75,8 @@
                         SeatArray[start++] = '1';
                         var row_number = i+1;
                         var col_number = j+1;
-                        result += "Seat number " + row_number + " " +col_number + "<br>";
-                        console.log("Seat number ",i+1," ",j+1);
+                        result += "Seat number " + row_number + "-->" +col_number + "<br>";
+                        console.log("Seat number ",i+1,"-->",j+1);
                         input--;
                     }else{
                         start++;
@@ -101,8 +101,8 @@
                     SeatArray[start++] = '1';
                     var row_number = i+1;
                     var col_number = j+1;
-                    result += "Seat number " + row_number + " " +col_number + "<br>";
-                    console.log("Seat number ",i+1," ",j+1);
+                    result += "Seat number " + row_number + "-->" +col_number + "<br>";
+                    console.log("Seat number ",i+1,"-->",j+1);
                     input--;
                 }else{
                     start++;
@@ -121,8 +121,8 @@
                 SeatArray[start++] = '1';
                 var row_number = 12;
                 var col_number = i+1;
-                result += "Seat number " + row_number + " " +col_number + "<br>";
-                console.log("Seat number ",i+1," ",j+1);
+                result += "Seat number " + row_number + "-->" +col_number + "<br>";
+                console.log("Seat number ",i+1,"-->",j+1);
                 input--;
             }else{
                 start++;
